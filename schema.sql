@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS items;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS transactions;
+DROP TABLE IF EXISTS administrators;
 
 CREATE TABLE items (
   id INTEGER PRIMARY KEY,
@@ -31,6 +32,14 @@ CREATE TABLE transactions (
   purchased_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE administrators (
+  id INTEGER PRIMARY KEY,
+  username TEXT,
+  password TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 
 CREATE TRIGGER itemChange BEFORE UPDATE ON items BEGIN
   UPDATE items SET updated_at= CURRENT_TIMESTAMP WHERE ID = new.id;
@@ -38,4 +47,8 @@ END;
 
 CREATE TRIGGER itemPurchase BEFORE UPDATE ON transactions BEGIN
   UPDATE items SET purchased_at= CURRENT_TIMESTAMP WHERE ID = new.id;
+END;
+
+CREATE TRIGGER authentication_admin BEFORE UPDATE ON administrators BEGIN
+  UPDATE users SET updated_at = CURRENT_TIMESTAMP WHERE id = new.id;
 END;

@@ -2,6 +2,7 @@ require 'pry'
 require_relative './lib/connection'
 require_relative './lib/item'
 require_relative './lib/transaction'
+require_relative './lib/administrator'
 require_relative './lib/user'
 
 9.times do |item|
@@ -15,3 +16,19 @@ require_relative './lib/user'
   thing.update({image_url: "/images/tshirt/#{thing.item_id}.jpg"})
   thing.update({name: "shirt#{thing.id}"})
 end
+
+Administrator.create({
+  username: "rachel hazes"
+})
+
+Administrator.create({
+  username: "tiffany poss"
+})
+
+Administrator.create({
+  username: "genevieve gorta"
+})
+
+Administrator.create({
+  username: "shoshana weisinger"
+})

@@ -12,13 +12,4 @@ class User<ActiveRecord::Base
     end
     return "c" + zeroes + id
   end
-  def self.exists?(email)
-    verify = User.find_by({email: email})
-    binding.pry
-    if verify.length > 0
-      return true
-    else
-      return false
-    end
-  end
 end

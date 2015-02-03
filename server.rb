@@ -27,6 +27,8 @@ post("/transaction") do
   last = params["last_name"]
   qty = params["quantity"]
   item_id = params["item_id"]
+  testA = User.exists?(:email=> email)
+  puts testA
   def exists?(email)
     verify = User.find_by({email: email})
     if verify

@@ -11,5 +11,6 @@ require_relative './lib/user'
     price: 24.00,
   });
   z = thing.update({item_id: thing.zerogen(thing.id)})
-  thing.update({image_url: "./public/images/#{thing.item_id}.jpg"})
+  thing.update({image_url: "/images/tshirt/#{thing.item_id}.jpg"})
+  thing.update({name: "shirt#{thing.id}"})
 end

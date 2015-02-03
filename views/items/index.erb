@@ -1,10 +1,42 @@
 <!DOCTYPE>
-<html>
+<html lang="en">
 <head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/css/indexstyle.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <% items.each do |item| %>
-    <li> <%= item.item_id %> </li>
-  <% end %>
+
+  <div class = "container-fluid">
+
+      <!-- header -->
+      <section class = "row">
+          <div class = "col-md-12" id = "header">
+            <header>
+              <h1 class = 'text-left'>The TeePot</h1>
+            </header>
+          </div>
+      </section> <!-- end header -->
+
+      <!--     row of teeshirts -->
+      <section class = "row">
+      <div class = 'text-center'>
+        <% items.each do |item| %>
+          <div class = "col-md-4">
+            <a href="/item/<%=item.id%>">
+              <img class="img-responsive" src=<%=item.image_url%>>
+            </a>
+            <h3><%=item.name%></h3>
+            <h4><%=item.price.to_s%></h4>
+          </div>
+        <% end %>
+      </div>
+      </section>
+   </div>
+  <!-- Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>

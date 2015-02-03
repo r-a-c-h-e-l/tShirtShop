@@ -1,0 +1,16 @@
+/*rgb(93, 89, 88) dark grey
+rgb(255, 255, 255) white
+rgb(193, 192, 192) light grey
+rgb(82, 190, 148) bright green
+rgb(192, 209, 113) light green
+rgb(246, 218, 134) light yellow
+rgb(238, 42, 75) red*/
+
+#header{
+  height: 100px;
+  background-color: rgb(192, 209, 113);
+}
+
+#header h1{
+  font-size: 3em;
+}

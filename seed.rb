@@ -6,6 +6,7 @@ require_relative './lib/user'
 
 9.times do |item|
   thing = Item.create({
+    description: "Four loko tattooed Wes Anderson, food truck cardigan beard skateboard. Tattooed pop-up Banksy leggings synth church-key. Cold-pressed chillwave readymade disrupt, mlkshk before they sold out High Life Godard Vice umami Shoreditch Truffaut. Bushwick Pinterest shabby chic, church-key blog Helvetica kogi paleo small batch locavore.",
     item_type: "t-shirt",
     qty: 20,
     price: 24.00,

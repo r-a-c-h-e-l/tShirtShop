@@ -43,11 +43,14 @@ get("/admin/login") do
 end
 
 get ('/history/:id') do
-  user = User.find_by({id: params[id]})
-  
+  user = User.find_by({id: params[:id]})
+  transactions = Transaction.where({user_id: user.user_id})
+  # puts transactions.all()
+  # puts transactions[0].item
+
+  erb :"admin/history" , locals: {user: user, history: transactions}
   # grab user that matches id
   #use user_id to cross reference the tranaction table and generate a transaction history for this user
-  return "working on it!"
 end
 
 post("/transaction") do
@@ -63,7 +66,7 @@ post("/transaction") do
     new_qty = p_item.qty - p_qty
     p_item.update({qty: new_qty })
     this_transaction = Transaction.create({
-      item_id: p_item.item_id,
+      item_id: p_item.id,
       user_id: this_user.user_id,
       purchase_qty: p_qty
       });
@@ -80,7 +83,7 @@ post("/transaction") do
       new_qty = p_item.qty - p_qty
       p_item.update({qty: new_qty })
       this_transaction = Transaction.create({
-        item_id: p_item.item_id,
+        item_id: p_item.id,
         user_id: this_user.user_id,
         purchase_qty: p_qty
         });

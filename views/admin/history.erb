@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/css/adminstyle.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <div class = "container-fluid">
+
+    <!-- header -->
+    <section class = "row">
+        <div class = "col-md-12 clearfix" id = "header">
+          <header>
+            <a href="/">
+              <h1 class = 'text-left'>Animali</h1>
+            </a>
+          </header>
+        </div>
+    </section> <!-- end header -->
+
+    <section class = "row">
+      <h3 class= "col-md-12"><%=user.user_id %></h3>
+      <p class= "col-md-12"><u>Details</u>:<br />
+        First Name: <%=user.firstName %><br />
+        Last Name: <%=user.lastName %><br />
+        Email Address: <%= user.email%>
+      </p>
+</section>
+
+    <section class = "row">
+      <h3 class= "col-md-12">Order History</h3>
+    </section>
+
+    <section class = "row">
+      <table class = "table table-striped col-md-12" id = "items">
+        <tr>
+          <th>Order ID</th>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Item</th>
+          <th>Quantity</th>
+        </tr>
+        <% history.each do |transaction| %>
+        <tr>
+          <td><%= transaction.transaction_id %></td>
+          <td><%= transaction.purchased_at %></td>
+          <td>getting there</td>
+          <td><%= transaction.item_id %></td>
+          <td><%= transaction.purchase_qty %></td>
+          </tr>
+        <% end %>
+          </table
+        </section>
+        <!-- Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+      </body>
+      </html>

@@ -31,7 +31,7 @@
               <img class="img-responsive, tee_image" src=<%=item.image_url%>>
             </a>
             <h3><%=item.name%></h3>
-            <h4>$<%=item.price%></h4>
+            <h4>$<%=item.price.round(2)%></h4>
           </div>
         <% end %>
       </div>

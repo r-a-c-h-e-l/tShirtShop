@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/css/indexstyle.css"
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class = "container-fluid">
+
+    <!-- header -->
+    <section class = "row">
+        <div class = "col-md-12 clearfix" id = "header">
+          <header>
+            <a href="/">
+              <h1 class = 'text-left'>Animali</h1>
+            </a>
+          </header>
+        </div>
+    </section> <!-- end header -->
+
+        <!-- box -->
+        <section class = "row" id = "trans_box">
+            <div class = "col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3 trans_inside_box">
+              <div class = "row">
+                <div class= "col-md-12 clearfix" id = "trans_header">
+                <h3>Thanks!</h3>
+                </div>
+              </div>
+              <div class= "row">
+                <div class= "col-md-12" id = "trans_content">
+                  <p>Thank you for your order. Your items will arrive in the mail 2-3 in business days.</p>
+                  <p>Your confirmation number is: <br> <span id = "confirm_num"> <%=purchase.transaction_id%></span></p>
+                </div>
+              </div>
+            </div>
+        </section>
+
+</div>
+
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

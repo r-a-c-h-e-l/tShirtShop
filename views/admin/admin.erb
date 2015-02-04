@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/css/adminstyle.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <div class = "container-fluid">
+
+    <!-- header -->
+    <section class = "row">
+        <div class = "col-md-12 clearfix" id = "header">
+          <header>
+            <a href="/">
+              <h1 class = 'text-left'>Animali</h1>
+            </a>
+          </header>
+        </div>
+    </section> <!-- end header -->
+
+    <section class = "row">
+      <h3 class = "col-md-12">Inventory</h3>
+    </section>
+
+    <section class = "row">
+      <table class = "table table-striped" id = "items">
+        <tr>
+          <th>Image</th>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Item Type</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Add/Remove</th>
+        </tr>
+        <% items.each do |item| %>
+          <tr>
+            <td><img src=<%=item.image_url%>></td>
+            <td><%=item.item_id%></td>
+            <td><%=item.name%></td>
+            <td><%=item.item_type%></td>
+            <td><%=item.description%></td>
+            <td><%=item.price%></td>
+            <td><%=item.qty%></td>
+            <td class="updateGroup"><input class="input input-xs invInput <%=item.name%>" type="text"><button class="add">+</button>
+            <button class="subtract">-</button></td>
+          </tr>
+        <% end %>
+
+          </table>
+
+        </section>
+
+        <section class = "row">
+          <h3 class = "col-md-12">Customers</h3>
+        </section>
+
+        <section class = "row">
+          <table class = "table table-striped" id = "items">
+            <tr>
+              <th>User ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+            </tr>
+            <tr>
+              <td>asldkfjsl</td>
+              <td>asldkfjsl</td>
+              <td>asldkfjsl</td>
+              <td>asldkfjsl</td>
+            </tr>
+          </table>
+
+        </section>
+
+
+
+        <section class = "row">
+          <h3 class = "col-md-12">Transactions</h3>
+        </section>
+
+        <section class = "row">
+          <table class = "table table-striped" id = "items">
+            <tr>
+              <th>User ID</th>
+              <th>Item ID</th>
+              <th>Quantity Purchased</th>
+              <th>Date Purchased</th>
+            </tr>
+            <tr>
+              <td>asldkfjsl</td>
+              <td>asldkfjsl</td>
+              <td>asldkfjsl</td>
+              <td>asldkfjsl</td>
+            </tr>
+          </table>
+
+        </section>
+
+
+
+
+
+
+        <script src="/js/admin.js">
+        <!-- Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+      </body>
+      </html>

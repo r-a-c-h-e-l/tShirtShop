@@ -11,7 +11,7 @@ CREATE TABLE items (
   qty INTEGER,
   item_id TEXT,
   image_url TEXT DEFAULT ".public/images/not_found.jpg",
-  price REAL,
+  price DOUBLE,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -43,10 +43,6 @@ CREATE TABLE administrators (
 
 CREATE TRIGGER itemChange BEFORE UPDATE ON items BEGIN
   UPDATE items SET updated_at= CURRENT_TIMESTAMP WHERE ID = new.id;
-END;
-
-CREATE TRIGGER itemPurchase BEFORE UPDATE ON transactions BEGIN
-  UPDATE items SET purchased_at= CURRENT_TIMESTAMP WHERE ID = new.id;
 END;
 
 CREATE TRIGGER authentication_admin BEFORE UPDATE ON administrators BEGIN

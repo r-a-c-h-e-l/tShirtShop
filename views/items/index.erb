@@ -13,9 +13,11 @@
 
       <!-- header -->
       <section class = "row">
-          <div class = "col-md-12" id = "header">
+          <div class = "col-md-12 clearfix" id = "header">
             <header>
-              <h1 class = 'text-left'>The TeePot</h1>
+              <a href="/">
+                <h1 class = 'text-left'>Animali</h1>
+              </a>
             </header>
           </div>
       </section> <!-- end header -->
@@ -24,17 +26,18 @@
       <section class = "row">
       <div class = 'text-center'>
         <% items.each do |item| %>
-          <div class = "col-md-4">
+          <div class = "col-md-4 col-sm-6, img_card">
             <a href="/item/<%=item.id%>">
-              <img class="img-responsive" src=<%=item.image_url%>>
+              <img class="img-responsive, tee_image" src=<%=item.image_url%>>
             </a>
             <h3><%=item.name%></h3>
-            <h4>$<%=item.price.to_s%></h4>
+            <h4>$<%=item.price%></h4>
           </div>
         <% end %>
       </div>
       </section>
-   </div>
+
+  </div>
   <!-- Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="../public/css/adminstyle.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <div class = "container-fluid">
+
+    <!-- header -->
+    <section class = "row">
+      <div class = "col-md-12 clearfix" id = "header">
+        <header>
+          <a href="/">
+            <h1 class = 'text-left'>Animali</h1>
+          </a>
+        </header>
+      </div>
+    </section> <!-- end header -->
+
+
+<section class="row">
+  <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-3 col-xs-6 col-xs-offset-2">
+
+    <section class="row">
+      <div class="col-md-12" id="form_header">
+        <h3>Admin Sign In</h3>
+      </div>
+    </section>
+
+
+    <section class="row">
+      <div class="col-md-12" id="login_bg">
+        <form action = "/session" method = "POST">
+        <label>Username:</label>
+        <input type = "text" name = "username"><br /><br />
+        <label>Password:</label>
+        <input type = "password" name = "password"><br /><br />
+        <button class = "btn-lg button">Sign In</button>
+      </form>
+      </div>
+    </section>
+  </div>
+</section>
+
+
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

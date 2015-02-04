@@ -4,7 +4,16 @@ require_relative './lib/connection'
 require_relative './lib/item'
 require_relative './lib/transaction'
 require_relative './lib/user'
+require_relative './lib/administrator'
 require 'pry'
+require 'bcrypt'
+require 'json'
+
+use Rack::Session::Pool, :cookie_only =>false
+
+def authenticated?
+  session[:valid_user] == true
+end
 
 after do
   ActiveRecord::Base.connection.close
@@ -22,7 +31,23 @@ get("/item/:id") do
 end
 
 get("/admin") do
-  erb :"admin/admin", locals: {items: Item.all(), }
+  if authenticated?
+    erb :"admin/admin", locals: {items: Item.all(), customers: User.all(), transactions: Transaction.all()}
+  else
+    redirect("/admin/login")
+  end
+end
+
+get("/admin/login") do
+  erb :"admin/login"
+end
+
+get ('/history/:id') do
+  user = User.find_by({id: params[id]})
+  
+  # grab user that matches id
+  #use user_id to cross reference the tranaction table and generate a transaction history for this user
+  return "working on it!"
 end
 
 post("/transaction") do
@@ -32,22 +57,17 @@ post("/transaction") do
   p_qty = params["quantity"].to_i
   item_id = params["item_id"]
   verify = User.exists?(:email=> email)
-  puts verify
   if verify
     this_user = User.find_by({email: email})
-    puts this_user
     p_item = Item.find_by({id: item_id})
     new_qty = p_item.qty - p_qty
     p_item.update({qty: new_qty })
-    puts p_item
     this_transaction = Transaction.create({
       item_id: p_item.item_id,
-      user_id: this_user.email,
+      user_id: this_user.user_id,
       purchase_qty: p_qty
       });
-      puts this_transaction
       this_transaction.update({transaction_id: this_transaction.zerogen(this_transaction.id)})
-      puts this_transaction
       erb :"transactions/trans", locals: {purchase: this_transaction}
   else
     this_user = User.create({
@@ -55,19 +75,43 @@ post("/transaction") do
       lastName: last,
       email: email
       });
-      puts this_user
+      this_user.update({user_id: this_user.zerogen(this_user.id)})
       p_item = Item.find_by({id: item_id})
       new_qty = p_item.qty - p_qty
       p_item.update({qty: new_qty })
-      puts p_item
       this_transaction = Transaction.create({
         item_id: p_item.item_id,
-        user_id: this_user.email,
+        user_id: this_user.user_id,
         purchase_qty: p_qty
         });
-        puts this_transaction
         this_transaction.update({transaction_id: this_transaction.zerogen(this_transaction.id)})
-        puts this_transaction
         erb :"transactions/trans", locals: {purchase: this_transaction}
     end
+end
+
+post ("/session") do
+  username = params["username"]
+  password = params["password"]
+
+  verify = Administrator.exists?(:username => username)
+  if verify
+    admin = Administrator.find_by(username: username)
+    if admin.password
+      if BCrypt::Password.new(admin.password) == password
+        puts "103"
+        session[:valid_user]= true
+        redirect("/admin")
+      else
+        erb :"admin/error"
+      end
+    else
+      puts "90"
+      this_password = BCrypt::Password.create(password)
+      admin.update({password: this_password})
+      session[:valid_user]= true
+      redirect("/admin")
+    end
+  else
+    erb :"admin/error"
+  end
 end

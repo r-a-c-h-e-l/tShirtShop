@@ -18,17 +18,17 @@ require_relative './lib/user'
 end
 
 Administrator.create({
-  username: "rachel hazes"
+  username: "rachel_hazes"
 })
 
 Administrator.create({
-  username: "tiffany poss"
+  username: "tiffany_poss"
 })
 
 Administrator.create({
-  username: "genevieve gorta"
+  username: "genevieve_gorta"
 })
 
 Administrator.create({
-  username: "shoshana weisinger"
+  username: "shoshana_weisinger"
 })

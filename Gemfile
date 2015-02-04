@@ -8,3 +8,5 @@ gem "sinatra"
 gem "pry"
 gem "sqlite3"
 gem "sinatra-reloader"
+gem "bcrypt"
+gem 'json'

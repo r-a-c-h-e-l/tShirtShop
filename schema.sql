@@ -18,6 +18,7 @@ CREATE TABLE items (
 
 CREATE TABLE users (
   id INTEGER PRIMARY KEY,
+  user_id TEXT,
   firstName TEXT,
   lastName TEXT,
   email TEXT
@@ -46,5 +47,5 @@ CREATE TRIGGER itemChange BEFORE UPDATE ON items BEGIN
 END;
 
 CREATE TRIGGER authentication_admin BEFORE UPDATE ON administrators BEGIN
-  UPDATE users SET updated_at = CURRENT_TIMESTAMP WHERE id = new.id;
+  UPDATE administrators SET updated_at = CURRENT_TIMESTAMP WHERE id = new.id;
 END;

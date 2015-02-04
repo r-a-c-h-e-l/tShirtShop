@@ -7,15 +7,25 @@ var groups = document.querySelectorAll(".updateGroup");
 // console.log(input);
 console.log(groups);
 var counter= 0;
-
+var bunchArray = [];
 for(var i = 0; i < groups.length; i++) {
   console.log(groups[i]);
-  console.log(groups[i].childNodes[0]);
+  bunchArray.push(groups[i]);
+  // var add = groups[i].childNodes[1];
+  // var subtract = groups[i].childNodes[2];
+  // var input = groups[i].childNodes[0];
+  // add.addEventListener("click", function() {
+  //   counter++
+  //   input.value = counter;
+  // })
+  // console.log(groups[i].childNodes[0]);
 }
-// groups[0].forEach(function(group) {
-//   console.log(group);
-//   console.log(group.input);
-// });
-// add.addEventListener("click", function() {
-//   counter
-// })
+bunchArray.forEach(function(group) {
+  var add = group.childNodes[1];
+  var subtract = group.childNodes[2];
+  var input = group.childNodes[0];
+  add.addEventListener("click", function() {
+    counter++
+    input.value = counter;
+  })
+});

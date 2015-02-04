@@ -47,7 +47,7 @@
             <td><%=item.description%></td>
             <td><%=item.price%></td>
             <td><%=item.qty%></td>
-            <td class="updateGroup"><input class="input input-xs invInput <%=item.name%>" type="text"><button class="add">+</button>
+            <td id=<%=item.name%> class="updateGroup"><input class="input input-xs" type="text" value=0><button class="add">+</button>
             <button class="subtract">-</button></td>
           </tr>
         <% end %>
@@ -63,17 +63,19 @@
         <section class = "row">
           <table class = "table table-striped" id = "items">
             <tr>
-              <th>User ID</th>
+              <th>Customer ID</th>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Email</th>
             </tr>
+            <% customers.each do |customer| %>
             <tr>
-              <td>asldkfjsl</td>
-              <td>asldkfjsl</td>
-              <td>asldkfjsl</td>
-              <td>asldkfjsl</td>
+              <td><a href= "/history/<%=customer.id%>"><%= customer.user_id%></a></td>
+              <td><%= customer.firstName%></td>
+              <td><%= customer.lastName%></td>
+              <td><%= customer.email%></td>
             </tr>
+            <% end %>
           </table>
 
         </section>
@@ -87,17 +89,19 @@
         <section class = "row">
           <table class = "table table-striped" id = "items">
             <tr>
-              <th>User ID</th>
+              <th>Customer ID</th>
               <th>Item ID</th>
               <th>Quantity Purchased</th>
               <th>Date Purchased</th>
             </tr>
+            <% transactions.each do |transaction| %>
             <tr>
-              <td>asldkfjsl</td>
-              <td>asldkfjsl</td>
-              <td>asldkfjsl</td>
-              <td>asldkfjsl</td>
+              <td><%=transaction.user_id%></td>
+              <td><%=transaction.transaction_id%></td>
+              <td><%=transaction.purchase_qty%></td>
+              <td><%=transaction.purchased_at%></td>
             </tr>
+            <% end %>
           </table>
 
         </section>

@@ -112,6 +112,9 @@ rgb(238, 42, 75) red*/
   margin-top: 35%;
 }
 
+
+
+
 /*style for transs page*/
 
 #trans_box{
@@ -145,4 +148,38 @@ rgb(238, 42, 75) red*/
   font-size: 1.5em;
   text-align: center;
   padding: 40px 8% 0 8%;
+}
+
+/*Error Page*/
+.err_inside_box{
+  background-color: grey;
+  height: 375px;
+}
+
+#err_header {
+  height: 100px;
+  background-color: rgb(238, 42, 75);
+  color: white;
+}
+
+#err_header h3 {
+  font-size: 3em;
+  text-align: center;
+}
+
+#err_content {
+  color: white;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 40px 8% 0 8%;
+}
+
+#err_red {
+  background-color: rgb(246, 218, 134);
+  border: 12px solid rgb(246, 218, 134);
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  padding-left: 5px;
+  padding-right: 5px;
 }
